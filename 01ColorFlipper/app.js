@@ -20,7 +20,12 @@ const changeColor = () => {
 
   container.style.background = randomColor;
 
+  const colorName = document.getElementById("colorName");
+
+  colorName.textContent = randomColor;
+
   console.log("clicked");
+  console.log(randomColor);
 };
 
 btn.addEventListener("click", changeColor);
