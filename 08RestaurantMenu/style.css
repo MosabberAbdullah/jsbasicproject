@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%; /* now 1rem === 10px */
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+body {
+  background-color: #f1f5f8;
+}
+
+.menu {
+  padding: 8rem 0;
+}
+
+:root {
+  --border-radius: 1rem;
+}
+
+.title {
+  font-family: "Roboto", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #102a42;
+  letter-spacing: 4px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.underline {
+  height: 0.5rem;
+  width: 9rem;
+  background-color: #c59d5f;
+  margin-bottom: 4rem;
+}
+
+.btn-container {
+  display: flex;
+  column-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.search-btn {
+  font-size: 1.6rem;
+  color: #c59d5f;
+  padding: 0.6rem 1.2rem;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  border-color: #c59d5f;
+  border-radius: 1rem;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+.search-btn:hover {
+  background-color: #c59d5f;
+  border-color: #c59d5f;
+  color: #ffffff;
+}
+
+/* food item section */
+
+.menu-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 4rem;
+}
+
+.row {
+  display: flex;
+  column-gap: 4rem;
+}
+
+.single-item {
+  display: flex;
+  column-gap: 2.5rem;
+}
+
+.f-img {
+  width: 22.5rem;
+  height: 15rem;
+  border: 0.4rem solid #c59d5f;
+  border-radius: 0.8rem;
+}
+
+.food-detail {
+  width: 32.4rem;
+}
+
+.price-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem dotted black;
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.4rem;
+  text-transform: capitalize;
+  padding-bottom: 0.8rem;
+}
+
+.f-title {
+  color: #102a42;
+}
+.f-price {
+  color: #c59d5f;
+}
+
+.f-detail {
+  margin-top: 1.6rem;
+  color: #617d98;
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  line-height: 2.4rem;
+  text-align: justify;
+}
