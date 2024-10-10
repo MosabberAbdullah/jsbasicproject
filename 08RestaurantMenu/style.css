@@ -19,6 +19,8 @@ h6 {
 
 body {
   background-color: #f1f5f8;
+  width: 120rem;
+  margin: auto;
 }
 
 .menu {
@@ -80,10 +82,10 @@ body {
 
 .menu-section {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  row-gap: 4rem;
+  /* justify-content: center; */
+  gap: 4rem;
 }
 
 .row {
