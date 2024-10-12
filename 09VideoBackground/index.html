@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Background</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aladin&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="preloader">
+      <img src="./preloader.gif" alt="" />
+    </div>
+    <header>
+      <video class="video-container" controls muted autoplay loop>
+        <source src="./video.mp4" type="video/mp4" />
+      </video>
+      <h1>Video project With Preloader</h1>
+      <h3>You can control video by pressing play & pause</h3>
+
+      <!-- button play pause -->
+
+      <button class="button-container">
+        <span>play</span>
+        <span>pause</span>
+        <span class="switch-btn"></span>
+      </button>
+    </header>
+
+    <script src="app.js"></script>
+  </body>
+</html>
