@@ -34,42 +34,43 @@ let tempDay = tempDate.getDate();
 
 const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 21, 30, 0);
 
-// let futureDate = new Date(2025, 11, 16, 14, 45, 0);
+// let futureDate = new Date(2026, 10, 27, 22, 35, 0);
 
 const year = futureDate.getFullYear();
 const hours = futureDate.getHours();
 const minutes = futureDate.getMinutes();
-const seconds = futureDate.getSeconds();
-const month = months[futureDate.getMonth()];
+let month = months[futureDate.getMonth()];
 const date = futureDate.getDate();
 const weekday = weekdays[futureDate.getDay()];
+
+// console.log(hours);
 
 giveaway.textContent = `giveaway ends on ${weekday}, ${date} ${month} ${year} ${hours}:${minutes}`;
 
 const futureTime = futureDate.getTime();
 // console.log(futureTime);
-
 function getRemaindingTime() {
   const today = new Date().getTime();
-
+  // console.log(today);
   const diff = futureTime - today;
   // console.log(diff);
 
-  //times in milliseconds
+  //get all in millisecond
   const oneDay = 24 * 60 * 60 * 1000;
   const oneHour = 60 * 60 * 1000;
   const oneMinute = 60 * 1000;
 
-  //time calculation
-  const days = Math.floor(diff / oneDay);
+  //calculate all values
+  let days = Math.floor(diff / oneDay);
   // console.log(days);
-  const hours = Math.floor((diff % oneDay) / oneHour);
-  const minutes = Math.floor((diff % oneHour) / oneMinute);
-  const seconds = Math.floor((diff % oneMinute) / 1000);
+  let hours = Math.floor((diff % oneDay) / oneHour);
+  let minutes = Math.floor((diff % oneHour) / oneMinute);
+  let seconds = Math.floor((diff % oneMinute) / 1000);
 
-  //values in array
+  // set array values
   const values = [days, hours, minutes, seconds];
 
+  //adding 0 infont of the single digit
   function format(item) {
     if (item < 10) {
       return (item = `0${item}`);
@@ -81,14 +82,14 @@ function getRemaindingTime() {
     item.innerHTML = format(values[index]);
   });
 
-  //end of count down
+  //control the count down timer
   if (diff < 0) {
     clearInterval(countdown);
     deadline.innerHTML = `<h4 class="expired">sorry, this giveaway has expired!</h4>`;
   }
 }
 
-//count down setup
-const countdown = setInterval(getRemaindingTime, 1000);
+//for count down
+let countdown = setInterval(getRemaindingTime, 1000);
 
 getRemaindingTime();
