@@ -13,15 +13,13 @@ let editElement;
 let editFlag = false;
 let editID = "";
 
-// ****** event listeners **********
+// event listener
 
-// form submit
+// Form submit
 form.addEventListener("submit", addItem);
 
-// clear the list items
+// cleat button
 clearBtn.addEventListener("click", clearItem);
-
-// ****** functions **********
 
 // add item
 function addItem(e) {
@@ -30,15 +28,13 @@ function addItem(e) {
   const value = grocery.value;
   const id = new Date().getTime().toString();
 
-  // condition for input
+  //condition
+
   if (value && !editFlag) {
-    // add article section
     const element = document.createElement("article");
 
-    // add class
     element.classList.add("grocery-item");
 
-    // add id
     const attr = document.createAttribute("data-id");
     attr.value = id;
     element.setAttributeNode(attr);
@@ -57,35 +53,21 @@ function addItem(e) {
             </div>
     `;
 
-    // edit and single delete btn
-    const deleteBtn = element.querySelector(".delete-btn");
-    const editBtn = element.querySelector(".edit-btn");
-
-    deleteBtn.addEventListener("click", deleteItem);
-    editBtn.addEventListener("click", editItem);
-    // append child
     list.appendChild(element);
 
-    // display alert
-    displayAlert(`${value} added to the list`, "success");
+    displayAlert("item added to the list", "success");
 
-    //show container
     container.classList.add("show-container");
 
-    // add to local storage
+    // local storage
     addToLocalStorage(id, value);
 
-    // set back to default
+    // set default
     setBackToDefault();
   } else if (value && editFlag) {
-    editElement.innerHTML = value;
-    displayAlert(`${value} edited`, "success");
-
-    // edit local storage
-    editLocalStorage(editID, value);
-    setBackToDefault();
+    console.log("Edited done");
   } else {
-    displayAlert("Please enter value", "danger");
+    displayAlert("please add item", "danger");
   }
 }
 
@@ -95,40 +77,10 @@ function displayAlert(text, action) {
   alert.classList.add(`alert-${action}`);
 
   // remove alert
-  setInterval(function () {
+  setInterval(() => {
     alert.textContent = "";
     alert.classList.remove(`alert-${action}`);
   }, 1000);
-}
-
-// delete single item function
-function deleteItem(e) {
-  const element = e.currentTarget.parentElement.parentElement;
-  list.removeChild(element);
-
-  displayAlert("item removed", "danger");
-
-  if (list.children.length === 0) {
-    container.classList.remove("show-container");
-  }
-  setBackToDefault();
-
-  // delete from local storage
-  // removeFromLocalStorage(id);
-}
-
-// edit item function
-function editItem(e) {
-  const element = e.currentTarget.parentElement.parentElement;
-
-  editElement = e.currentTarget.parentElement.previousElementSibling;
-
-  // set form value
-  grocery.value = editElement.innerHTML;
-
-  editFlag = true;
-  editID = element.dataset.id;
-  submitBtn.textContent = "edit";
 }
 
 // clear item function
@@ -141,11 +93,12 @@ function clearItem() {
     });
   }
   container.classList.remove("show-container");
+
   displayAlert("empty list", "danger");
-  // setBackToDefault();
+  setBackToDefault();
 }
 
-// set back to default
+// set default function
 function setBackToDefault() {
   grocery.value = "";
   editFlag = false;
@@ -153,33 +106,7 @@ function setBackToDefault() {
   submitBtn.textContent = "submit";
 }
 
-// ****** local storage **********
+// local storage function
 function addToLocalStorage(id, value) {
-  const grocery = { id: id, value: value };
-  console.log(grocery);
-
-  // console.log("item added");
+  console.log("local storage");
 }
-
-function removeFromLocalStorage(id) {
-  //code here
-}
-
-function editLocalStorage(id, value) {
-  // code here
-}
-
-// local storage API
-// setItem
-// getItem
-// removeItem
-// save as strings
-
-// localStorage.setItem("orange", JSON.stringify(["item", "item2", "noteBook"]));
-
-// const storage = JSON.parse(localStorage.getItem("orange"));
-
-// console.log(storage);
-// localStorage.removeItem("orange");
-
-// ****** setup items **********
